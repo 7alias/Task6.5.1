@@ -1,19 +1,20 @@
 public class Sportsman {
-    private String name;
-    private double record;
+    private String name, team;
 
-    public Sportsman(String name, double record) {
+    public Sportsman(String name, String team) {
         this.name = name;
-        this.record = record;
-
+        this.team = team;
     }
 
-    public void show(){
-        System.out.println("Sportsman{ name: " + getName());
-    }
     public String getName() {
         return name;
     }
 
+    public String getTeam() {
+        return team;
+    }
 
+    public void show(boolean sportsman){
+        System.out.println(getName() + " " + getTeam());
+    }
 }
