@@ -1,8 +1,10 @@
 public class Sportsman {
     private String name;
+    private double record;
 
-    public Sportsman(String name) {
+    public Sportsman(String name, double record) {
         this.name = name;
+        this.record = record;
 
     }
 

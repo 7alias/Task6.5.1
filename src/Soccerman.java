@@ -1,22 +1,28 @@
 public class Soccerman extends Sportsman {
-    private int maxGoalsCount = 0;
-    private int goalsCount;
+    private String[] tableName = new String[3];
+    private int[] tableGoals = new int[3];
 
-    public Soccerman(String name, int goalsCount) {
-        super(name);
-        this.goalsCount = goalsCount;
+    String winner = "";
+    public Soccerman(String name, int goals) {
+        super(name, goals);
+        for (int i = 0; i < 3; i++) {
+            tableName[i] = name;
+            tableGoals[i] = goals;
+        }
     }
 
-    public int compareGoal(int goalsCount) {
-        if (goalsCount > this.goalsCount) {
-            maxGoalsCount = goalsCount;
+    public String compareRecord() {
+        int maxRecord = 0;
+        for (int i = 0; i < 3; i++) {
+
+            if (tableGoals[i]> maxRecord){ maxRecord = tableGoals[i]; winner = (tableName[i] + " : " + tableGoals[i]);}
         }
-        return maxGoalsCount;
+        return winner;
+
     }
 
     @Override
     public void show() {
-        System.out.println("Soccerman name: " + super.getName() + "goals: " + compareGoal(goalsCount));
+        System.out.println( compareRecord());
     }
 }
-

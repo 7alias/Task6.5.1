@@ -1,21 +1,32 @@
 public class Sprinter extends Sportsman {
-    private double record;
+    private String[] tableName = new String[3];
+    private double[] tableRecord = new double[3];
     private double maxRecord = 0;
+    String winner = "";
 
     public Sprinter(String name, double record) {
-        super(name);
-        this.record = record;
+        super(name, record);
+        for (int i = 0; i < 3; i++) {
+            tableName[i] = name;
+            tableRecord[i] = record;
+        }
     }
 
+    public String compareRecord() {
+        maxRecord = tableRecord[0];
+        for (int i = 0; i < 3; i++) {
 
-    public double compareRecord(double record) {
-        if (this.record > maxRecord) {maxRecord = this.record;}
-            else {maxRecord = this.record;}
-            return maxRecord;
+            if (tableRecord[i] > maxRecord) {maxRecord = tableRecord[i];
+                winner = (tableName[i] + " : " + tableRecord[i]);
+            } else {
+            }
+        }
+
+        return winner;
     }
 
     @Override
     public void show() {
-        System.out.println("Sprinter name: " + super.getName() + "record: " + compareRecord(record));
+        System.out.println(compareRecord());
     }
 }
